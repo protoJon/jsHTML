@@ -1,20 +1,22 @@
 console.log("Welcome to Rock, Paper, Scissors! Please, no TNT.");
 console.log("Your opponent is a 9ft tall mech-bot loaded with deadly RPS AI. The bot's cold camera apperatures auto-level with your eyes, the sun reflects perfectly into your cornea and clouds your vision...");
+
+var userChoice = 0;
+var botChoice = Math.floor((Math.random() * 3) + 1);
 choice(prompt("Please enter your choice!"));
-var usri = 0;
 
 function choice(input) {
   if (input.toUpperCase() === "ROCK") {
-      usri = 1; //1 7 9
+      userChoice = 1; //1 2 3
       console.log("User chooses Rock!");
   } else if (input.toUpperCase() === "PAPER") {
-      usri = 7; //2 14 18
+      userChoice = 4; //4 8 12
       console.log("User chooses Paper!");
   } else if (input.toUpperCase() === "SCISSORS") {
-      usri = 9; //3 21 27
+      userChoice = 5; //5 10 15
       console.log("User chooses Scissors!");
   } else if (input.toUpperCase() === "TNT") {
-      usri = 4; //4 28 36
+      userChoice = 6; //6 12 18
       console.log("User chooses TNT! Bastard.");
   } else {
       console.log("Bad option, try again sicko.");
@@ -22,44 +24,44 @@ function choice(input) {
       return 0;
   }
 } 
-result(usri);
+result(userChoice);
 
-function npcY() {
-    return Math.floor((Math.random() * 3) + 1);
-}
 
 function result(usrX) {
     //Rock
-    if (usrX * npcY() === 1) {
-        console.log("Both players hurtle rocks at one another- everyone gets hurt and no one has a good time.")
-    }
-    else if (usrX * npcY() === 7) {
-        console.log("You choose rock and the AI chose paper! Suddenly, you remember this is a footrace and lose because you are weighed down by your terrible decisions.")
-    }
-    else if (usrX * npcY() === 9) {
-        console.log("The AI bot brandishes a pair of razor sharp scissors. You throw a rock into the mainframe. It dies. Promptly.")
-    }
+    switch(usrX * botChoice) {
+        case 1:
+            console.log("Both players hurtle rocks at one another- everyone gets hurt and no one has a good time.")
+        break;
+        case 2: 
+            console.log("You choose rock and the AI chose paper! Suddenly, you remember this is a footrace and lose because you are weighed down by your terrible decisions.")
+        break;
+        case 3: 
+            console.log("The AI bot brandishes a pair of razor sharp scissors. You throw a rock into the mainframe. It dies. Promptly.")
+        break;
     //Paper
-    else if (usrX * npcY() === 2) {
-        console.log("The mech-bot's fist become a rock, ready to crush you with impossible strength. You hold up a piece of white paper, the robot accepts your surrender. Victory! You lived!");
-    }
-    else if (usrX * npcY() === 14) {
-        console.log("");
-    }
-    else if (usrX * npcY() === 18) {
-        console.log("");
-    }
+        case 4: 
+            console.log("The mech-bot's fist become a rock, ready to crush you with impossible strength. You hold up a piece of white paper, the robot accepts your surrender. Victory! You lived!");
+        break;
+        case 8:
+            console.log("");
+        break;
+        case 12: 
+            console.log("");
+        break;
     
     //Scissors
-    else if (usrX * npcY() === 3) {
+        case 5:
         console.log("You unsheath a pair of super shiny scissors. Blinded by the glint of your own weapon- you fail to react in time. The mech-bot hits you in the left kneecap with a giant rock.")
-    }
-    else if (usrX * npcY() === 21) {
-        console.log("You hold up scissors. The robot holds up paper. Victory.")
-    }
-    else if (usrX * npcY() === 27) {
-        console.log("You and the bot both choose scissors. The entire situation is very confusing and before long you're both staring into the sun.")
-    } else {
+        break;
+        case 10: 
+            console.log("You hold up scissors. The robot holds up paper. Victory.")
+        break;
+        case 15:
+            console.log("You and the bot both choose scissors. The entire situation is very confusing and before long you're both staring into the sun.")
+        break;
+        default:
         console.log("The bot's AI fails. How did you do that?");
+        break;
     }
 }
