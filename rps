@@ -1,66 +1,63 @@
 console.log("Welcome to Rock, Paper, Scissors! Please, no TNT.");
 console.log("Your opponent is a 9ft tall mech-bot loaded with deadly RPS AI. The bot's cold camera apperatures auto-level with your eyes, the sun reflects perfectly into your cornea and clouds your vision...");
 choice(prompt("Please enter your choice!"));
-var useri = 0;
+var usri = 0;
 
 function choice(input) {
   if (input.toUpperCase() === "ROCK") {
       usri = 1; //1 7 9
       console.log("User chooses Rock!");
   } else if (input.toUpperCase() === "PAPER") {
-      usri = 2; //2 14 18
+      usri = 7; //2 14 18
       console.log("User chooses Paper!");
   } else if (input.toUpperCase() === "SCISSORS") {
-      usri = 3; //3 21 27
+      usri = 9; //3 21 27
       console.log("User chooses Scissors!");
   } else if (input.toUpperCase() === "TNT") {
       usri = 4; //4 28 36
       console.log("User chooses TNT! Bastard.");
   } else {
-      return 0;
       console.log("Bad option, try again sicko.");
-      choice();
+      choice(prompt("Please enter a better choice!"));
+      return 0;
   }
 } 
 result(usri);
 
 function npcY() {
-    var i = Math.floor((Math.random() * 3) + 1);
-    if (i === 1)  console.log(i) | return 1;
-    if (i === 2)  console.log(i) | return 7;
-    if (i === 3)  console.log(i) | return 9;
+    return Math.floor((Math.random() * 3) + 1);
 }
 
 function result(usrX) {
     //Rock
-    if (usrX * (npcY()) === 1) {
+    if (usrX * npcY() === 1) {
         console.log("Both players hurtle rocks at one another- everyone gets hurt and no one has a good time.")
     }
-    else if (usrX * (npcY()) === 7) {
+    else if (usrX * npcY() === 7) {
         console.log("You choose rock and the AI chose paper! Suddenly, you remember this is a footrace and lose because you are weighed down by your terrible decisions.")
     }
-    else if (usrX * (npcY()) === 9) {
+    else if (usrX * npcY() === 9) {
         console.log("The AI bot brandishes a pair of razor sharp scissors. You throw a rock into the mainframe. It dies. Promptly.")
     }
     //Paper
-    else if (usrX * (npcY()) === 2) {
+    else if (usrX * npcY() === 2) {
         console.log("The mech-bot's fist become a rock, ready to crush you with impossible strength. You hold up a piece of white paper, the robot accepts your surrender. Victory! You lived!");
     }
-    else if (usrX * (npcY()) === 14) {
+    else if (usrX * npcY() === 14) {
         console.log("");
     }
-    else if (usrX * (npcY()) === 18) {
+    else if (usrX * npcY() === 18) {
         console.log("");
     }
     
     //Scissors
-    else if (usrX * (npcY()) === 3) {
+    else if (usrX * npcY() === 3) {
         console.log("You unsheath a pair of super shiny scissors. Blinded by the glint of your own weapon- you fail to react in time. The mech-bot hits you in the left kneecap with a giant rock.")
     }
-    else if (usrX * (npcY()) === 21) {
+    else if (usrX * npcY() === 21) {
         console.log("You hold up scissors. The robot holds up paper. Victory.")
     }
-    else if (usrX * (npcY()) === 27) {
+    else if (usrX * npcY() === 27) {
         console.log("You and the bot both choose scissors. The entire situation is very confusing and before long you're both staring into the sun.")
     } else {
         console.log("The bot's AI fails. How did you do that?");
