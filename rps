@@ -2,7 +2,13 @@ console.log("Welcome to Rock, Paper, Scissors! Please, no TNT.");
 console.log("Your opponent is a 9ft tall mech-bot loaded with deadly RPS AI. The bot's cold camera apperatures auto-level with your eyes, the sun reflects perfectly into your cornea and clouds your vision...");
 
 var userChoice = 0;
-var botChoice = Math.floor((Math.random() * 3) + 1);
+var computerChoice = Math.random();
+if (computerChoice <= 0.33) computerChoice = 1;
+else if (computerChoice <= 0.66) computerChoice = 2;
+else computerChoice = 3;
+
+console.log("The AI has made up it's mind: ")
+console.log(computerChoice);
 choice(prompt("Please enter your choice!"));
 
 function choice(input) {
@@ -29,7 +35,7 @@ result(userChoice);
 
 function result(usrX) {
     //Rock
-    switch(usrX * botChoice) {
+    switch(usrX * computerChoice) {
         case 1:
             console.log("Both players hurtle rocks at one another- everyone gets hurt and no one has a good time.")
         break;
@@ -44,10 +50,10 @@ function result(usrX) {
             console.log("The mech-bot's fist become a rock, ready to crush you with impossible strength. You hold up a piece of white paper, the robot accepts your surrender. Victory! You lived!");
         break;
         case 8:
-            console.log("");
+            console.log("Both you and the robot choose paper. Everyone takes notes on how to avoid this situation in the future.");
         break;
         case 12: 
-            console.log("");
+            console.log("The robot stabs you in the face for bringing paper to a knife fight.");
         break;
     
     //Scissors
